@@ -25,7 +25,7 @@ public class SeriesServiceImpl implements SeriesService{
     }
     @Override
     public Series updateSeries(Series series) throws TeamException {
-        Optional<Series> series2= seriesRepository.findById(series.getSeriesId());
+        Optional<Series> series2= seriesRepository.findById(series.getId());
         if (!series2.isPresent()) {
             throw new TeamException(HttpStatus.FORBIDDEN,"Record does not exist");
         }

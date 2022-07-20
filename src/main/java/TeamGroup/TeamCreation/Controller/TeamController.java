@@ -36,11 +36,9 @@ public class TeamController {
          teamServiceImpl.DeleteTeamById(id);
     }
     @GetMapping("/pagination/{PageNumber}/{PageSize}")
-    public List<Team> paginatingTeam(@PathVariable Integer PageNumber, @PathVariable Integer PageSize, @RequestParam String teamName){
+    public List<Team> paginatingTeam(@PathVariable Integer PageNumber,
+                                     @PathVariable Integer PageSize,
+                                     @RequestParam String teamName){
         return teamServiceImpl.paginatingTeam(PageNumber,PageSize,teamName);
     }
-//    @GetMapping
-//    public List<Team> sortingPages(@RequestParam Sort sort,Team team){
-//    Team team1= TeamRepository.sortingPages(Sort.Direction.DESC,"team");
-//    }
 }

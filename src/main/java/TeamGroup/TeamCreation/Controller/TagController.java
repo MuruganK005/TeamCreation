@@ -1,5 +1,4 @@
 package TeamGroup.TeamCreation.Controller;
-
 import TeamGroup.TeamCreation.Entity.Tags;
 import TeamGroup.TeamCreation.Service.TagServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
 @RestController
 @RequestMapping("/api/tag")
 public class TagController {
@@ -38,11 +36,5 @@ public class TagController {
     @GetMapping("/pagination/{PageNumber}/{PageSize}")
     public List<Tags> paginatingTagsService(@PathVariable Integer PageNumber, @PathVariable Integer PageSize,@RequestParam String tagName){
         return tagServiceImpl.paginatingTagsService(PageNumber,PageSize,tagName);
-
     }
-
-//    @GetMapping("/pagination/{PageNumber}/{PageSize}/pageable")
-//    public Page<Tags> paginatingTags(@PathVariable Integer PageNumber, @PathVariable Integer PageSize, Pageable pageable){
-//        return tagServiceImpl.paginatingTags(PageNumber,PageSize,pageable);}
-
 }

@@ -27,16 +27,16 @@ public class TagServiceImpl implements TagService {
     }
     @Override
     public List<Tags> updateTags(Tags tags) throws Exception{
-        Optional<Tags> tags22= tagRepository.findById(tags.getTagId());
+        Optional<Tags> tags22= tagRepository.findById(tags.getId());
         if (!tags22.isPresent()) {
             throw new TeamException(HttpStatus.FORBIDDEN,"Record does not exist");
         }
         Optional<Tags> tags33= tagRepository.findByTagName(tags.getTagName());
-        if (tags33.isPresent() && tags33.get().getTagId() != tags.getTagId()) {
+        if (tags33.isPresent() && tags33.get().getId() != tags.getId()) {
             throw new TeamException(HttpStatus.FORBIDDEN,"TagName Already Exist in Another Id");
         }
         Optional<Tags> tags44= tagRepository.findByTagColor(tags.getTagColor());
-        if (tags44.isPresent() && tags44.get().getTagId() != tags.getTagId()) {
+        if (tags44.isPresent() && tags44.get().getId() != tags.getId()) {
             throw new TeamException(HttpStatus.FORBIDDEN,"TagColor Already Exist in Another Id");
         }
         tags22.get().setTagName(tags.getTagName());
